@@ -1,3 +1,7 @@
+# By Carlie Hamilton
+# 13 March 2019
+# This script allows the user to search for lyrics in the terminal
+
 from musixmatch import Musixmatch
 import apikey
 

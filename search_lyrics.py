@@ -1,11 +1,12 @@
 # By Carlie Hamilton
 # 13 March 2019
+# https://github.com/BlueCodeThree
 # This script allows the user to search for lyrics in the terminal
 
 from musixmatch import Musixmatch
 import apikey
 
-musixmatch = Musixmatch(apikey.api)
+musixmatch = Musixmatch(apikey.musixmatch_api)
 
 # search for the track id
 def track_id_search(q_track, q_artist):
@@ -17,37 +18,15 @@ def get_lyrics(track_id):
     lyrics = musixmatch.track_lyrics_get(track_id)['message']['body']['lyrics']['lyrics_body']
     return lyrics
 
-print("Please enter the Track Name:")
+# User enters the song (track) name and the artist's name
+print("Please enter the Song Name:")
 track_name = input(" ")
 print("Please enter the Artist Name:")
 track_artist = input(" ") 
 
+# Terminal prints out the track ID and the lyrics
 print("Track Id:" + str(track_id_search(track_name, track_artist)))
 print(" ")
 print("Lyrics: ")
 print(get_lyrics(track_id_search(track_name, track_artist)))
-
-
-
-
-# url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=148791234&apikey=" + apikey.api
-
-# uh = urllib.request.urlopen(url)
-# data = uh.read()
-# print ('Retrieved',len(data),'characters')
-
-# data_string = data.decode("utf-8")
-# js = json.loads(data_string)
-
-#open_url = urllib.request.urlopen(url).read() 
-#result = open_url.decode("utf8")
-#print(result)
-
-# response = requests.get(url).json()
-# print(type(response))
-# print(response)
-
-
-
-
 

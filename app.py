@@ -5,12 +5,24 @@ musixmatch = Musixmatch(apikey.api)
 
 # search for the track id
 def track_id_search(q_track, q_artist):
-    track_search = musixmatch.track_search(q_track, q_artist, page_size=10, page=1, s_track_rating='desc')['message']['body']['track_list'][0]['track']['track_id']
-    return track_search
-    #for k, v in track_search['track']:
-    #    return k, v
+    track_id = musixmatch.track_search(q_track, q_artist, page_size=10, page=1, s_track_rating='desc')['message']['body']['track_list'][0]['track']['track_id']
+    return track_id
 
-print(track_id_search("The Safety of Disbelief", "Light the Torch"))
+# get the lyrics of a song
+def get_lyrics(track_id):
+    lyrics = musixmatch.track_lyrics_get(track_id)['message']['body']['lyrics']['lyrics_body']
+    return lyrics
+
+track_name = "The Safety of Disbelief"
+track_artist = "Light the Torch"  
+
+print("Track Id:" + str(track_id_search(track_name, track_artist)))
+print(" ")
+print("Lyrics: ")
+print(get_lyrics(track_id_search(track_name, track_artist)))
+
+
+
 
 # url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=148791234&apikey=" + apikey.api
 

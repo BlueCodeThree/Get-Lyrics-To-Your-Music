@@ -3,15 +3,14 @@ import apikey
 
 musixmatch = Musixmatch(apikey.api)
 
-def search_for_track(q_track, q_artist):
-    track_search = musixmatch.track_search(q_track, q_artist, page_size=10, page=1, s_track_rating='desc')
-    track_more = track_search['message']['body']['track_list'][0]  
-     #, []
-    return track_more
-    #for result in track_search['message']['body']['track_list']['track']:
-    #    return str(result)
+# search for the track id
+def track_id_search(q_track, q_artist):
+    track_search = musixmatch.track_search(q_track, q_artist, page_size=10, page=1, s_track_rating='desc')['message']['body']['track_list'][0]['track']['track_id']
+    return track_search
+    #for k, v in track_search['track']:
+    #    return k, v
 
-print(search_for_track("The Safety of Disbelief", "Light the Torch"))
+print(track_id_search("The Safety of Disbelief", "Light the Torch"))
 
 # url = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=callback&track_id=148791234&apikey=" + apikey.api
 

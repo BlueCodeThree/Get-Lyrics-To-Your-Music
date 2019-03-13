@@ -13,8 +13,10 @@ def get_lyrics(track_id):
     lyrics = musixmatch.track_lyrics_get(track_id)['message']['body']['lyrics']['lyrics_body']
     return lyrics
 
-track_name = "The Safety of Disbelief"
-track_artist = "Light the Torch"  
+print("Please enter the Track Name:")
+track_name = input(" ")
+print("Please enter the Artist Name:")
+track_artist = input(" ") 
 
 print("Track Id:" + str(track_id_search(track_name, track_artist)))
 print(" ")

@@ -35,7 +35,7 @@ print("Artist = " + current_playing_artist)
 current_playing_song = sp.current_user_playing_track()['item']['name']
 print("Song = " + current_playing_song)
 
-# search for the track id
+# search for the track id - in order to get the lyrics
 track_id = musixmatch.track_search(current_playing_song, current_playing_artist, page_size=10, page=1, s_track_rating='desc')['message']['body']['track_list'][0]['track']['track_id']
 
 # get the lyrics of a song
@@ -43,7 +43,7 @@ def get_lyrics(track_id):
     lyrics = musixmatch.track_lyrics_get(track_id)['message']['body']['lyrics']['lyrics_body']
     return lyrics
 
-# Terminal prints out the track ID and the lyrics
+# Terminal prints out the lyrics
 print("Lyrics: ")
 print(get_lyrics(track_id))
 

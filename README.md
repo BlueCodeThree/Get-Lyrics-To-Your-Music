@@ -18,4 +18,5 @@ Another terminal script, this prints out your top ten tracks you've listened to 
 
 ### Dependancies
 Spotipy - for the spotify integration
+
 MusixMatch - for the lyrics

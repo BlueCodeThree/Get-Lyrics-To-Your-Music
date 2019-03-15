@@ -15,3 +15,7 @@ Then, once you have a valid token, the script grabs the song that is currently p
 ## top_tracks.py
 
 Another terminal script, this prints out your top ten tracks you've listened to on Spotify (medium range of time, whatever that means, lol), and your top ten artists. 
+
+### Dependancies
+Spotipy - for the spotify integration
+MusixMatch - for the lyrics

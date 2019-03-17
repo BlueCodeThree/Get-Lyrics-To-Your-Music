@@ -25,8 +25,18 @@ print("Please enter the Artist Name:")
 track_artist = input(" ") 
 
 # Terminal prints out the track ID and the lyrics
-print("Track Id:" + str(track_id_search(track_name, track_artist)))
-print(" ")
-print("Lyrics: ")
-print(get_lyrics(track_id_search(track_name, track_artist)))
-
+while True:
+    try:
+        print(" ")
+        print(" ")
+        print("Lyrics: ")
+        print(get_lyrics(track_id_search(track_name, track_artist)))
+        break
+    except IndexError:
+        print(" ")
+        print("OOPS!")
+        print("Your search brought up no results. Please try again!")
+        print("Please enter the Song Name:")
+        track_name = input(" ")
+        print("Please enter the Artist Name:")
+        track_artist = input(" ") 
